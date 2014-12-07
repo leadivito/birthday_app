@@ -12,7 +12,7 @@ namespace SampleFacebookBirthdayApp
         private static HttpClient client = new HttpClient();
 
         public static string AppKey = ConfigurationManager.AppSettings["Search:AppKey"];
-
+        //public static string AppKey = "uid681-26220459-79";
         public static Task<SearchResult> GetProductsAsync(string query)
         {
             if (String.IsNullOrEmpty(AppKey))
