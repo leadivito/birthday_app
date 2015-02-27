@@ -141,6 +141,7 @@
     <Compile Include="Helpers\BirthdayCalculator.cs" />
     <Compile Include="Helpers\RecommendationEngine.cs" />
     <Compile Include="Helpers\ShoppingSearchClient.cs" />
+    <Compile Include="Models\FacebookMovies.cs" />
     <Compile Include="Models\MyAppUser.cs" />
     <Compile Include="Models\FacebookPicture.cs" />
     <Compile Include="Models\FacebookPhoto.cs" />

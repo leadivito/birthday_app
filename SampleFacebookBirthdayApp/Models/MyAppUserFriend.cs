@@ -20,6 +20,8 @@ namespace SampleFacebookBirthdayApp.Models
 
         [FacebookFieldModifier("height(100).width(100)")] // This sets the picture height and width to 100px.
         public FacebookConnection<FacebookPicture> Picture { get; set; }
+
+        
    
     }
 }

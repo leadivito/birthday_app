@@ -11,7 +11,7 @@ namespace SampleFacebookBirthdayApp.Controllers
 {
     public class HomeController : Controller
     {
-        [FacebookAuthorize("friends_birthday", "user_friends")]
+        [FacebookAuthorize("friends_birthday", "user_friends", "friends_likes")]
         public async Task<ActionResult> Index(FacebookContext context)
         {
             ViewBag.AppUrl = GlobalFacebookConfiguration.Configuration.AppUrl;
