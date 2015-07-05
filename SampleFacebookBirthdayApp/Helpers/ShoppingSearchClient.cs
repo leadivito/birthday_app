@@ -19,7 +19,6 @@ namespace SampleFacebookBirthdayApp
             {
                 throw new InvalidOperationException("Search:AppKey cannot be empty. Make sure you set it in the configuration file.");
             }
-
             query = query.Replace(" ", "+");
             string searchQuery = String.Format(SearchApiTemplate, AppKey, query);
             var response = client.GetAsync(searchQuery).Result.EnsureSuccessStatusCode();

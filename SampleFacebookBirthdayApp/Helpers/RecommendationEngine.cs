@@ -48,6 +48,11 @@ namespace SampleFacebookBirthdayApp
                 recommendedItems.Add(product);
             }
 
+            //Ricerca con amazon
+            List<Product> amazonProducts = ItemLookupSample.SearchAmazon(" ");
+            foreach(var p in amazonProducts)
+                recommendedItems.Add(p);
+
             return recommendedItems;
         }
     }
