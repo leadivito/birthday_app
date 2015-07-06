@@ -85,8 +85,8 @@ namespace SampleFacebookBirthdayApp
             foreach (var item in categoryBasedOnGenderForAmazon)
             {
                 List<Product> amazonProducts = ItemLookupSample.SearchAmazon(item, " ");
-                foreach (var p in amazonProducts)
-                    recommendedItems.Add(p);
+                Random r = new Random();
+                recommendedItems.Add(amazonProducts[r.Next(amazonProducts.Count())]);
             }
 
             recommendedItems.Shuffle();
