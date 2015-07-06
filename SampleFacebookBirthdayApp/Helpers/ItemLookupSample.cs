@@ -24,7 +24,7 @@ namespace SampleFacebookBirthdayApp
        // private const Task<string> NAMESPACE = "http://webservices.amazon.com/AWSECommerceService/2009-03-31";
        // private const string ITEM_ID   = "0545010225";
 
-        public static  List<Product> SearchAmazon(String keyword)
+        public static  List<Product> SearchAmazon(String SearchIndex, String keyword)
         {
 
             SignedRequestHelper helper = new SignedRequestHelper(MY_AWS_ACCESS_KEY_ID, MY_AWS_SECRET_KEY, DESTINATION);
@@ -34,11 +34,14 @@ namespace SampleFacebookBirthdayApp
             String requestString = "Service=AWSECommerceService" 
                 + "&Version=2009-03-31"
                 + "&Operation=ItemSearch"
-                + "&SearchIndex=Books"
-                + "&ResponseGroup=Large"
+                + "&SearchIndex=" + SearchIndex
+                + "&ResponseGroup=Medium"
                 + "&Keywords=" + keyword
                 + "&AssociateTag=" + MY_AWS_ASSOCIATION_ID
                 ;
+
+
+
            requestUrl = helper.Sign(requestString);
 
            try
@@ -70,9 +73,9 @@ namespace SampleFacebookBirthdayApp
 
                        //leggo il file XML di ritorno
                        reader.ReadToFollowing("ASIN");
-                       p.Description = reader.ReadElementContentAsString();
                        reader.ReadToFollowing("DetailPageURL");
                        p.ClickUrl = reader.ReadElementContentAsString();
+                       p.Description = "";
                        reader.ReadToFollowing("MediumImage");
                        reader.ReadToFollowing("URL");
                        bi.Url = reader.ReadElementContentAsString();
